@@ -4,9 +4,15 @@ import TaskList from '../components/TaskList';
 import TaskInput from '../components/TaskInput';
 
 const Container = styled.div`
-  max-width: 600px;
+  background-color:rgba(255, 255, 255, 0.58);
+  border-radius: 25px;
   margin: 2rem auto;
+  min-height: 50%;
   font-family: sans-serif;
+  text-align: center;
+  min-width: 200px;
+  padding: 20px;
+  width: 70%;
 `;
 
 const BASE_URL = 'https://oc7kab3v54.execute-api.us-east-2.amazonaws.com/dev';
@@ -26,6 +32,7 @@ export default function Home() {
 
   const addTask = async (taskName) => {
     try {
+      await delay();
       const res = await fetch(BASE_URL + '/add-task', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -41,6 +48,7 @@ export default function Home() {
 
   const deleteTask = async (id) => {
     try {
+      await delay();
       const res = await fetch(BASE_URL + `/task/${id}`, {
         method: 'DELETE'
       });
@@ -49,6 +57,8 @@ export default function Home() {
       console.error("Error deleting task", err);
     }
   };
+
+  const delay = () => new Promise((resolve) => setTimeout(resolve, 1000));
 
   useEffect(() => {
     fetchTasks();
