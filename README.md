@@ -93,3 +93,7 @@ artifacts:
 
 ## Demo Video
 You can get an more in-depth overview of this project by watching this comprehensive demo video:
+
+
+https://github.com/user-attachments/assets/97482899-feb7-4713-b9c6-ad0bbbb681eb
+
